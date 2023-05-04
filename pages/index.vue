@@ -3,6 +3,7 @@ import { useBoredStore } from '@/stores/boredStore'
 const store = useBoredStore()
 await store.getData()
 const data = computed(() => store.data)
+const todos = computed(() => store.todos)
 const isLoading = computed(() => store.isLoading)
 async function addToList(){
     store.addItem({
@@ -24,12 +25,12 @@ async function addToList(){
       <p>{{ data.activity }}</p>
       <p>Price: ${{ data.price }}</p>
       <p>Type of activity: {{ data.type }}</p>
-
     </div>
+    
     <hr />
     <button @click="addToList">Yeah</button> | <button @click="store.getData">Nah</button>
-      <Itinerary todos="todos" />
-      <p>Total Cost: ${{ store.total.toFixed(2) }}</p>
+      <Itinerary v-bind:todos="todos" />
+
   </div>
 </template>
 

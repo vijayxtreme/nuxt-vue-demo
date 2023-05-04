@@ -3,9 +3,9 @@
         <h2>Plan for the weekend</h2>
         <p>Cost</p>
         <ul v-for="todo in todos">
-            <li>{{ todo.activity }} | Cost ${{ todo.price.toFixed(2) }} | <span>{{  todo.type }}</span> <button @click="store.removeItem(todo)">X</button></li>
+            <li>{{ todo?.activity }} | Cost ${{ todo?.price.toFixed(2) }} | <span>{{  todo?.type }}</span> <button @click="store.removeItem(todo)">X</button></li>
         </ul>
-        <p>Total Cost: ${{ store.total.toFixed(2) }}</p>
+        <p>Total Cost: ${{ store?.total?.toFixed(2) }}</p>
     </div>
 </template>
 <script setup lang="ts">
