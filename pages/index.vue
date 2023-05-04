@@ -28,7 +28,7 @@ async function addToList(){
     </div>
     <hr />
     <button @click="addToList">Yeah</button> | <button @click="store.getData">Nah</button>
-      <Itinerary />
+      <Itinerary todos="todos" />
       <p>Total Cost: ${{ store.total.toFixed(2) }}</p>
   </div>
 </template>
