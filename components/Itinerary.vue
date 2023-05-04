@@ -3,7 +3,7 @@
         <h2>Plan for the weekend</h2>
         <p>Cost</p>
         <ul v-for="todo in todos">
-            <li>{{ todo }}</li>
+            <li>{{ todo.activity }} | Cost ${{ todo.price.toFixed(2) }} <button @click="store.removeItem(todo)">X</button></li>
         </ul>
     </div>
 </template>
@@ -11,4 +11,5 @@
 import { useBoredStore } from '@/stores/boredStore'
 const store = useBoredStore()
 const todos = computed(() => store.todos)
+
 </script>
