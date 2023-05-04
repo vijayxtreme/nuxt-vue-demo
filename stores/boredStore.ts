@@ -13,7 +13,6 @@ export const useBoredStore = defineStore("boredStore", {
         const { data } = await useFetch(
           `http://www.boredapi.com/api/activity?type=recreational`
         );
-        console.log(data);
         this.data = data;
       } catch (e) {}
       this.isLoading = false;
@@ -26,6 +25,7 @@ export const useBoredStore = defineStore("boredStore", {
       this.todos = this.todos.filter(
         (it: BoredItem) => it.activity !== item.activity
       );
+      this.total = this.total - item.price;
     },
   },
 });

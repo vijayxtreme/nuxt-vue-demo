@@ -30,7 +30,8 @@ async function addToList(){
     <hr />
     <button @click="addToList">Yeah</button> | <button @click="store.getData">Nah</button>
       <Itinerary v-bind:todos="todos" />
-
+    <hr />
+    <Pie />
   </div>
 </template>
 
