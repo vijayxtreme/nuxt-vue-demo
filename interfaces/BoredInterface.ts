@@ -7,3 +7,5 @@ export interface BoredItem {
   key?: string;
   accessibility?: number;
 }
+
+export type BoredObject = BoredItem | {};

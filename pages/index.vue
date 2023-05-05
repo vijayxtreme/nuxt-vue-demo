@@ -11,7 +11,11 @@ async function addToList(){
       price: data.value.price,
       type: data.value.type
     })
-    await store.getData()
+    store.getData()
+}
+function clearLocalStorage(){
+    localStorage.clear()
+    window.location.reload()
 }
 </script>
 
@@ -19,9 +23,10 @@ async function addToList(){
 <template>
   <div>
     <h2>Suggest me stuff I can do</h2>
+    <button @click="clearLocalStorage">Clear Local Storage</button>
+
     <div class="boredTodo" v-if="isLoading">Loading...</div>
     <div v-if="!isLoading">
-    
       <p>{{ data.activity }}</p>
       <p>Price: ${{ data.price }}</p>
       <p>Type of activity: {{ data.type }}</p>
@@ -31,7 +36,7 @@ async function addToList(){
     <button @click="addToList">Yeah</button> | <button @click="store.getData">Nah</button>
       <Itinerary v-bind:todos="todos" />
     <hr />
-    <Graph />
+    <Graph v-bind:todos="todos" />
   </div>
 </template>
 
